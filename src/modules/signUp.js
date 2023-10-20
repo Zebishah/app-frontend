@@ -31,7 +31,7 @@ const SignUp = () => {
       email_error.current.textContent = '';
     }
     if ((Logs.email === true)) {
-      setDhos(true);
+      setShos(true);
       const timerId = setTimeout(() => {
         navigate("/SignIn");
         Logs.email = "";
@@ -40,7 +40,7 @@ const SignUp = () => {
       return () => clearTimeout(timerId);
 
     }
-  }, [Logs.email, Logs.pass]);
+  }, [Logs, navigate, Logs.email, Logs.pass]);
   let SignUp = async (e) => {
     if (username.current.value.trim() !== '' || Email.current.value.trim() !== '' || password.current.value.trim() !== '') {
       if (username.current.value.trim() === "") {
