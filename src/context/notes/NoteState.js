@@ -20,7 +20,7 @@ let NoteState = (props) => {
 
     setNotes(data);
   }
-  let add_Note = async (key, title, Description, tags, s) => {
+  let add_Note = async (title, Description, tags, s) => {
 
 
     const response = await fetch(`${host}/api/notes/addNote`, {
