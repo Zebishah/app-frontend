@@ -121,7 +121,7 @@ const SignIn = () => {
         }, [shos])
       }
 
-      <div className=" flex flex-col m-auto items-center justify-center md:p-6 ssm:p-2 bg-white shadow-sm shadow-black w-[40%] h-[25rem] relative bottom-[18.6rem] md:w-[30rem] sm:w-[60%] ssm:w-[70%] sssm:w-[80%] sssm:-mt-8 sssm:h-[40%]">
+      <div className=" flex flex-col m-auto items-center md:p-6 ssm:p-2 bg-white shadow-sm shadow-black w-[40%] h-[25rem] relative bottom-[18.6rem] md:w-[30rem] sm:w-[60%] ssm:w-[70%] sssm:w-[80%] sssm:-mt-8 sssm:h-[40%]">
 
         <div className="container flex flex-col gap-y-6 h-full items-center justify-center bg-white p-10 sssm:w-[100%] sssm:p-3 ">
 
