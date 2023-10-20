@@ -7,19 +7,19 @@ let NoteState = (props) => {
   let [note, setNotes] = useState(notes);
 
 
-  let get_Notes = async () => {
-    const response = await fetch(`${host}/api/notes/fetchNote`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": localStorage.getItem('token')
-      },
+  // let get_Notes = async () => {
+  //   const response = await fetch(`${host}/api/notes/fetchNote`, {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "auth-token": localStorage.getItem('token')
+  //     },
 
-    });
-    const data = await response.json();
+  //   });
+  //   const data = await response.json();
 
-    setNotes(data);
-  }
+  //   setNotes(data);
+  // }
   let add_Note = async (title, Description, tags, s) => {
 
 
@@ -35,63 +35,63 @@ let NoteState = (props) => {
     setNotes(note.concat(data))
 
   }
-  let delete_Note = async (id) => {
+  // let delete_Note = async (id) => {
 
-    const response = await fetch(`${host}/api/notes/deleteNote/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": localStorage.getItem('token')
-      },
+  //   const response = await fetch(`${host}/api/notes/deleteNote/${id}`, {
+  //     method: "DELETE",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "auth-token": localStorage.getItem('token')
+  //     },
 
-    });
-    const data = response.json();
-    console.log(data)
-
-
-
-    let new_Notes = note.filter((note) => {
-
-      return note._id !== id;
-    })
-
-    setNotes(new_Notes);
-  }
-  let update_Note = async (id, title, Description, tags) => {
+  //   });
+  //   const data = response.json();
+  //   console.log(data)
 
 
 
-    // Default options are marked with *
-    const response = await fetch(`${host}/api/notes/updateNote/${id}`, {
+  //   let new_Notes = note.filter((note) => {
 
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": localStorage.getItem('token')
-      },
-      body: JSON.stringify({ title, Description, tags }),
-    });
+  //     return note._id !== id;
+  //   })
 
-    console.log("title" + title)
-    const data = await response.json();
-    console.log(data)
+  //   setNotes(new_Notes);
+  // }
+  // let update_Note = async (id, title, Description, tags) => {
 
 
 
-    for (let index = 0; index < note.length; index++) {
-      const element = note[index];
-      if (element._id === id) {
-        element.title = title;
-        element.Description = Description;
-        element.tags = tags;
-      }
-    }
+  //   // Default options are marked with *
+  //   const response = await fetch(`${host}/api/notes/updateNote/${id}`, {
 
-  }
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "auth-token": localStorage.getItem('token')
+  //     },
+  //     body: JSON.stringify({ title, Description, tags }),
+  //   });
+
+  //   console.log("title" + title)
+  //   const data = await response.json();
+  //   console.log(data)
+
+
+
+  //   for (let index = 0; index < note.length; index++) {
+  //     const element = note[index];
+  //     if (element._id === id) {
+  //       element.title = title;
+  //       element.Description = Description;
+  //       element.tags = tags;
+  //     }
+  //   }
+
+  // }
 
 
   return (
-    <NoteContext.Provider value={{ note, get_Notes, add_Note, delete_Note, update_Note }}>
+    <NoteContext.Provider value={{ note, add_Note, }}>
       {props.children}
     </NoteContext.Provider>
 
