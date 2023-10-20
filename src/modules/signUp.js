@@ -104,7 +104,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className='flex flex-col overflow-x-hidden'>
+    <div className='flex flex-col overflow-x-hidden gap-y-4'>
       <Navbar />
       <WrongAlert dhos={dhos} />
       {

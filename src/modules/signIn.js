@@ -92,7 +92,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className='overflow-hidden flex flex-col'>
+    <div className='overflow-hidden flex flex-col gap-y-4'>
       <Navbar />
       <WrongAlert dhos={dhos} />
       {
