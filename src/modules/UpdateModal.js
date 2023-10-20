@@ -116,7 +116,7 @@ const UpdateModal = (props) => {
   return (
     <>
 
-      <div className='modal flex flex-col justify-center items-center bg-black bg-opacity-75 w-[100%] h-[38.7rem] -mt-[9.3rem] z-index: 9999 fixed overflow-hidden ' ref={close} >
+      <div className='modal flex flex-col justify-center items-center bg-black bg-opacity-75 w-[100%] h-[38.9rem] -mt-[9.3rem] z-index: 9999 fixed overflow-hidden ' ref={close} >
         <FontAwesomeIcon icon={faClose} className='text-purple-600 md:text-6xl ml-auto ssm:mr-5 sm:text-3xl sm:-mt-5 ssm:text-2xl ' onClick={() => { close_Modal() }} />
         <div className="container flex flex-col gap-y-4 items-center justify-center bg-white w-[60%] p-10 -mt-6 sm:w-[80%] ssm:w-[80%]">
 
