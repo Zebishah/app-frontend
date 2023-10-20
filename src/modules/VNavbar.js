@@ -1,29 +1,36 @@
 import React, { useState } from 'react'
-
+import { Link } from 'react-router-dom';
 const VNavbar = (props) => {
   let { show } = props;
   return (
     <div className={`nav-items flex w-40 shadow-sm shadow-black ml-auto mr-4 transition-all z-50 duration-500 ease-in-out bg-purple-600 ${show ? '-translate-x-0' : 'ssm:translate-x-48 sssm:translate-x-48'}`}>
       <ul className="flex flex-col p-4 gap-y-5 items-center justify-center w-full">
 
-        <li className=" text-white cursor-pointer text-[16px] border-b-2 border-purple-500 w-full p-1 text-center">
+        <Link to={"/"}><li className=" text-white cursor-pointer text-[16px] lg:text-[16px] smd:text-[14px] md:text-[13px] md:text-white ">
           Home
         </li>
-        <li className=" text-white cursor-pointer text-[16px] border-b-2 border-purple-500 w-full p-1 text-center">
+        </Link>
+        <Link to={"/about"}>  <li className=" text-white cursor-pointer text-[16px] lg:text-[16px] smd:text-[14px] md:text-[13px] md:text-white ">
           About
         </li>
-        <li className=" text-white cursor-pointer text-[16px] border-b-2 border-purple-500 w-full p-1 text-center">
+        </Link>
+        <Link to={"/contact"}> <li className=" text-white cursor-pointer text-[16px] lg:text-[16px] smd:text-[14px] md:text-[13px] md:text-white ">
           Contacts
         </li>
-        <li className=" text-white cursor-pointer text-[16px] border-b-2 border-purple-500 w-full p-1 text-center">
+        </Link>
+
+        <Link to={"/AllNotes"}> <li className=" text-white cursor-pointer text-[16px] lg:text-[16px] smd:text-[14px] md:text-[13px] md:text-white ">
           Notes
         </li>
-        <li className=" text-white cursor-pointer text-[16px] border-b-2 border-purple-500 w-full p-1 text-center">
+        </Link>
+        <Link to={"/help"}>  <li className=" text-white cursor-pointer text-[16px] lg:text-[16px] smd:text-[14px] md:text-[13px] md:text-white ">
           Help
         </li>
-        <li className=" text-white cursor-pointer text-[16px] border-b-2 border-purple-500 w-full p-1 text-center">
+        </Link>
+        <Link to={"/links"}>  <li className=" text-white cursor-pointer text-[16px] lg:text-[16px] smd:text-[14px] md:text-[13px] md:text-white ">
           Links
         </li>
+        </Link>
       </ul>
     </div>
   )

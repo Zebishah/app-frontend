@@ -24,7 +24,7 @@ const AllNotes = (props) => {
 
       <h1 className=' text-purple-600 text-3xl font-sans text-center items-center p-4 bg-purple-100 rounded-md w-full '>YOUR NOTES</h1>
 
-      <div className='flex flex-wrap items-center sm:justify-start smd:ml-8 xl:gap-x-[1.7rem] gap-y-8 lg:gap-x-[4.2rem] smd:gap-x-[2.6rem] ssm:gap-x-[1rem] md:ml-8 sm:ml-2 ssm:justify-center  '>
+      <div className='flex flex-wrap items-center sm:justify-start smd:ml-8 xl:gap-x-[1.7rem] gap-y-8 lg:gap-x-[4.2rem] smd:gap-x-[2.6rem] ssm:gap-x-[1rem] md:ml-8 sm:ml-2 ssm:justify-center sssm:justify-center sssm:items-center'>
         {note.length === 0 && <h1 className=' text-purple-600 text-2xl font-sans text-center items-center p-4w-full '>No notes to display... Please Add some notes from above</h1>}
         {note.map((notes) => {
           return <Noteitem keys={notes._id} titles={notes.title} Description={notes.Description} tags={notes.tags} update_Note={update_Note} />
