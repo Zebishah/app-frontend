@@ -25,7 +25,7 @@ const UpdateModal = (props) => {
   let tagss = useRef(null);
   let count = 0;
   let { keys, state, setShow, up_tit, up_des, up_tag } = props
-  let [not, set_Note] = useState({ id: "", title: "", Description: "", tags: "" })
+
   const [editedTitle, setEditedTitle] = useState(up_tit);
   const [editedDescription, setEditedDescription] = useState(up_des);
   const [editedTags, setEditedTags] = useState(up_tag);
@@ -60,12 +60,14 @@ const UpdateModal = (props) => {
 
         }
         if (count === note.length) {
-          setShos(true);
+
+
+          update_Note(keys, editedTitle, editedDescription, editedTags)
+
+          close_Modal();
           titless.current.value = ""
           Descriptions.current.value = ""
           tagss.current.value = ""
-          close_Modal();
-          update_Note(keys, editedTitle, editedDescription, editedTags)
 
         }
         else {
