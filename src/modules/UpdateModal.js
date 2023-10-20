@@ -25,7 +25,7 @@ const UpdateModal = (props) => {
   let tagss = useRef(null);
   let count = 0;
   let { keys, state, setShow, up_tit, up_des, up_tag } = props
-
+  let [not, set_Note] = useState({ id: "", title: "", Description: "", tags: "" })
   const [editedTitle, setEditedTitle] = useState(up_tit);
   const [editedDescription, setEditedDescription] = useState(up_des);
   const [editedTags, setEditedTags] = useState(up_tag);
@@ -60,14 +60,12 @@ const UpdateModal = (props) => {
 
         }
         if (count === note.length) {
-
-
-          update_Note(keys, editedTitle, editedDescription, editedTags)
-
-          close_Modal();
+          setShos(true);
           titless.current.value = ""
           Descriptions.current.value = ""
           tagss.current.value = ""
+          close_Modal();
+          update_Note(keys, editedTitle, editedDescription, editedTags)
 
         }
         else {
@@ -115,7 +113,19 @@ const UpdateModal = (props) => {
   }
   return (
     <>
+      <UpdateAlert shos={shos} />
+      {
+        useEffect(() => {
+          if (shos) {
+            const timerId = setTimeout(() => {
+              setShos(false);
+            }, 3000);
 
+            return () => clearTimeout(timerId);
+          }
+
+        }, [shos])
+      }
       <div className='modal flex flex-col justify-center items-center bg-black bg-opacity-75 w-[100%] h-[38.7rem] -mt-[9.3rem] z-index: 9999 fixed overflow-hidden ' ref={close} >
         <FontAwesomeIcon icon={faClose} className='text-purple-600 md:text-6xl ml-auto ssm:mr-5 sm:text-3xl sm:-mt-5 ssm:text-2xl ' onClick={() => { close_Modal() }} />
         <div className="container flex flex-col gap-y-4 items-center justify-center bg-white w-[60%] p-10 -mt-6 sm:w-[80%] ssm:w-[80%]">
