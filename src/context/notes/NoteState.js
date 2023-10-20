@@ -72,21 +72,26 @@ let NoteState = (props) => {
       body: JSON.stringify({ title, Description, tags }),
     });
 
-    console.log("title" + title)
+
     const data = await response.json();
     console.log(data)
 
 
 
-    for (let index = 0; index < note.length; index++) {
-      const element = note[index];
-      if (element._id === id) {
-        element.title = title;
-        element.Description = Description;
-        element.tags = tags;
-      }
-    }
 
+    const updatedNotes = note.map((element) => {
+      if (element._id === id) {
+        return {
+          ...element,
+          title,
+          Description,
+          tags,
+        };
+      }
+      return element;
+    });
+
+    setNotes(updatedNotes);
   }
 
 
