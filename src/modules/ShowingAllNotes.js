@@ -22,9 +22,9 @@ const AllNotes = (props) => {
         YOUR NOTES
       </h1>
 
-      <div className="flex flex-wrap items-center sm:justify-start smd:ml-8 xl:gap-x-[1.7rem] gap-y-8 lg:gap-x-[4.2rem] smd:gap-x-[2.6rem] ssm:gap-x-[1rem] md:ml-8 sm:ml-2 ssm:justify-center sssm:justify-center sssm:items-center  ">
+      <div className="z-10 flex flex-wrap items-center sm:justify-start smd:ml-8 xl:gap-x-[1.7rem] gap-y-8 lg:gap-x-[4.2rem] smd:gap-x-[2.6rem] ssm:gap-x-[1rem] md:ml-8 sm:ml-2 ssm:justify-center sssm:justify-center sssm:items-center  ">
         {data.length === 0 && (
-          <h1 className="items-center font-sans text-2xl text-center text-purple-600 p-4w-full">
+          <h1 className="items-center w-full p-4 font-sans text-2xl text-center text-purple-600">
             No notes to display... Please Add some notes from above
           </h1>
         )}

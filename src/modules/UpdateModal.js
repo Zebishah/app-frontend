@@ -73,42 +73,20 @@ const UpdateModal = (props) => {
           tit_error.current.textContent =
             "Same note is already exsisted in your notes";
         }
-      } else {
-        if (titless.current.value.length > 14) {
-          tit_error.current.textContent =
-            "You cant enter a title larger than this length";
-          return;
-        }
-        if (Descriptions.current.value.length > 66) {
-          Des_error.current.textContent =
-            "You cant enter a Description larger than this length";
-          return;
-        }
-        if (tagss.current.value.length > 14) {
-          tags_error.current.textContent =
-            "You cant enter a tag larger than this length";
-          return;
-        }
       }
     }
   };
   let titleChange = (e) => {
     setEditedTitle(e.target.value);
-    if (titless.current.value.length <= 14 && titless.current.value !== "")
-      tit_error.current.textContent = "";
+    if (titless.current.value !== "") tit_error.current.textContent = "";
   };
   let DesChange = (e) => {
     setEditedDescription(e.target.value);
-    if (
-      Descriptions.current.value.length <= 66 &&
-      Descriptions.current.value !== ""
-    )
-      Des_error.current.textContent = "";
+    if (Descriptions.current.value !== "") Des_error.current.textContent = "";
   };
   let tagChange = (e) => {
     setEditedTags(e.target.value);
-    if (tagss.current.value.length <= 14 && tagss.current.value !== "")
-      tags_error.current.textContent = "";
+    if (tagss.current.value !== "") tags_error.current.textContent = "";
   };
   let close_Modal = () => {
     setShow(false);
@@ -128,7 +106,7 @@ const UpdateModal = (props) => {
         }
       }, [shos])}
       <div
-        className="modal flex flex-col justify-center items-center bg-black bg-opacity-75 w-[100%] h-[38.7rem] -mt-[9.3rem] z-index: 9999 fixed overflow-hidden "
+        className="modal flex flex-col justify-center items-center bg-black bg-opacity-75 w-[100%] h-screen z-20 fixed overflow-hidden "
         ref={close}
       >
         <FontAwesomeIcon
@@ -140,7 +118,7 @@ const UpdateModal = (props) => {
         />
         <div className="container flex flex-col gap-y-4 items-center justify-center bg-white w-[60%] p-10 -mt-6 sm:w-[80%] ssm:w-[80%]">
           <div className="flex flex-row items-center">
-            <h1 className="items-center p-3 font-sans text-purple-600 bg-purple-100 rounded-md  md:text-2xl ssm:text-lg">
+            <h1 className="items-center p-3 font-sans text-purple-600 bg-purple-100 rounded-md md:text-2xl ssm:text-lg">
               UPDATE YOUR NOTE
             </h1>
           </div>
