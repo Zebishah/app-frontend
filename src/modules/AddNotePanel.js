@@ -160,14 +160,14 @@ const AddNote = () => {
       }, [shos])}
 
       <div className="container flex flex-col items-center smd:gap-y-7 ssm:gap-y-5 sssm:gap-y-5">
-        <h1 className="items-center p-4 font-sans text-purple-600 bg-purple-100 rounded-md smd:text-3xl">
+        <h1 className="items-center p-4 font-sans text-blue-600 bg-blue-100 rounded-md smd:text-3xl">
           ADD YOUR NOTES
         </h1>
         <form className="flex flex-col items-center gap-y-3">
           <div className="flex flex-col smd:gap-y-3 ssm:gap-y-2 sssm:gap-y-1">
             <label
               htmlFor="title"
-              className="items-start text-purple-600 smd:text-xl md:"
+              className="items-start text-blue-600 smd:text-xl md:"
             >
               Title
             </label>
@@ -186,7 +186,7 @@ const AddNote = () => {
           </div>
 
           <div className="flex flex-col gap-y-3 ssm:gap-y-2 sssm:gap-y-1">
-            <label htmlFor="tags" className="text-purple-600 smd:text-xl">
+            <label htmlFor="tags" className="text-blue-600 smd:text-xl">
               Tags
             </label>
             <div className="flex flex-col gap-y-1">
@@ -206,10 +206,7 @@ const AddNote = () => {
             </div>
           </div>
           <div className="flex flex-col gap-y-3 ssm:gap-y-2 sssm:gap-y-1">
-            <label
-              htmlFor="Description"
-              className="text-purple-600 smd:text-xl "
-            >
+            <label htmlFor="Description" className="text-blue-600 smd:text-xl ">
               Description
             </label>
             <div className="flex flex-col gap-y-1">
@@ -228,7 +225,7 @@ const AddNote = () => {
           <input
             type="button"
             value="Submit"
-            className="p-3 smd:mt-[20px] cursor-pointer rounded-md shadow-sm shadow-black bg-purple-600 text-white w-[10rem] ssm:p-2 ssm:w-[8rem] md:mt-[16px] ssm:mt-[14px] sssm:mt-[14px] sssm:p-2"
+            className="p-3 smd:mt-[20px] cursor-pointer rounded-md shadow-sm shadow-black bg-blue-600 text-white w-[10rem] ssm:p-2 ssm:w-[8rem] md:mt-[16px] ssm:mt-[14px] sssm:mt-[14px] sssm:p-2"
             onClick={submit_Task}
           />
         </form>

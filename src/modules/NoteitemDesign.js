@@ -22,7 +22,7 @@ const Noteitem = (props) => {
 
   return (
     <div>
-      <div className="relative flex flex-row w-full p-3 text-gray-700 bg-white border-2 border-purple-600 shadow-md shadow-lg bg-clip-border rounded-xl shadow-black">
+      <div className="relative flex flex-row w-full p-3 text-gray-700 bg-white border-2 border-blue-600 shadow-md shadow-lg bg-clip-border rounded-xl shadow-black">
         <div className="relative w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-r-none bg-clip-border rounded-xl shrink-0">
           <img
             src={imageSrc}
@@ -43,14 +43,14 @@ const Noteitem = (props) => {
           <div className="flex flex-row gap-x-4 smd:mt-[0.3rem] sm:mt-[0.2rem]">
             <FontAwesomeIcon
               icon={faTrash}
-              className="text-purple-600 cursor-pointer "
+              className="text-blue-600 cursor-pointer "
               onClick={() => {
                 dispatch(delete_Note(keys));
               }}
             />
             <FontAwesomeIcon
               icon={faPenToSquare}
-              className="text-purple-600 cursor-pointer "
+              className="text-blue-600 cursor-pointer "
               onClick={() => {
                 update_Note(keys, titles, Description, tags);
               }}

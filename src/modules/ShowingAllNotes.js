@@ -18,13 +18,13 @@ const AllNotes = (props) => {
 
   return (
     <div className="flex flex-col items-center justify-center mt-10 gap-y-14">
-      <h1 className="items-center w-full p-4 font-sans text-3xl text-center text-white bg-purple-600 rounded-md ">
+      <h1 className="items-center w-full p-4 font-sans text-3xl text-center text-white bg-blue-600 rounded-md ">
         YOUR NOTES
       </h1>
 
       <div className="z-10 flex flex-wrap items-center sm:justify-start smd:ml-8 xl:gap-x-[1.7rem] gap-y-8 lg:gap-x-[4.2rem] smd:gap-x-[2.6rem] ssm:gap-x-[1rem] md:ml-8 sm:ml-2 ssm:justify-center sssm:justify-center sssm:items-center  ">
         {data.length === 0 && (
-          <h1 className="items-center w-full p-4 font-sans text-2xl text-center text-purple-600">
+          <h1 className="items-center w-full p-4 font-sans text-2xl text-center text-blue-600">
             No notes to display... Please Add some notes from above
           </h1>
         )}
