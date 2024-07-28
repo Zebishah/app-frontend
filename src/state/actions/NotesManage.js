@@ -4,18 +4,21 @@ let todos = [];
 export const add_Note = (title, Description, tags) => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`${host}/api/notes/addNote`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": localStorage.getItem("token"),
-        },
-        body: JSON.stringify({
-          title: title,
-          Description: Description,
-          tags: tags,
-        }),
-      });
+      const response = await fetch(
+        `https://notiabackendbhai.vercel.app/api/notes/addNote`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "auth-token": localStorage.getItem("token"),
+          },
+          body: JSON.stringify({
+            title: title,
+            Description: Description,
+            tags: tags,
+          }),
+        }
+      );
       const data = await response.json();
 
       await dispatch({
@@ -38,13 +41,16 @@ export const add_Note = (title, Description, tags) => {
 export const get_Note = () => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`${host}/api/notes/fetchNote`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": localStorage.getItem("token"),
-        },
-      });
+      const response = await fetch(
+        `https://notiabackendbhai.vercel.app/api/notes/fetchNote`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "auth-token": localStorage.getItem("token"),
+          },
+        }
+      );
       const data = await response.json();
       todos = data;
       await dispatch({
@@ -59,13 +65,16 @@ export const get_Note = () => {
 export const delete_Note = (id) => {
   return async (dispatch) => {
     try {
-      const response = await fetch(`${host}/api/notes/deleteNote/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": localStorage.getItem("token"),
-        },
-      });
+      const response = await fetch(
+        `https://notiabackendbhai.vercel.app/api/notes/deleteNote/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            "auth-token": localStorage.getItem("token"),
+          },
+        }
+      );
       const data = response.json();
 
       todos = todos.filter((note) => note._id !== id);
@@ -83,14 +92,17 @@ export const update_Note = (id, title, Description, tags) => {
   return async (dispatch) => {
     console.log(id, title, Description, tags);
     try {
-      const response = await fetch(`${host}/api/Notes/updateNote/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": localStorage.getItem("token"),
-        },
-        body: JSON.stringify({ title, Description, tags }),
-      });
+      const response = await fetch(
+        `https://notiabackendbhai.vercel.app/api/Notes/updateNote/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "auth-token": localStorage.getItem("token"),
+          },
+          body: JSON.stringify({ title, Description, tags }),
+        }
+      );
 
       const data = await response.json();
       console.log(data);
