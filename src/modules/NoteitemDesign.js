@@ -1,59 +1,65 @@
-import React, { useContext, useRef, useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
-import religionImage from '../images/Itachi.jpg';
-import hinduismImage from '../images/wallpaperflare.com_wallpaper (2).jpg';
-import businessImage from '../images/wallpaperflare.com_wallpaper (3).jpg';
-import NoteContext from '../context/notes/NoteContext';
-
-
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import religionImage from "../images/cathryn-lavery-fMD_Cru6OTk-unsplash.jpg";
+import hinduismImage from "../images/natalie-kinnear-bXI_74lvZyI-unsplash.jpg";
+import businessImage from "../images/wendy-aros-routman-Pf5iPTOJQ3g-unsplash.jpg";
+import { useDispatch } from "react-redux";
+import { delete_Note } from "../state/actions/NotesManage";
 
 const Noteitem = (props) => {
-    const { keys, titles, Description, tags, update_Note } = props;
-    const notes = useContext(NoteContext);
-    let { delete_Note } = notes;
-    let imageSrc;
+  const { keys, titles, Description, tags, update_Note } = props;
 
-    if (tags === "Religion") {
-        imageSrc = religionImage;
-    } else if (tags === "hinduis") {
-        imageSrc = hinduismImage;
-    } else {
-        imageSrc = businessImage;
-    }
+  const dispatch = useDispatch();
+  let imageSrc;
 
+  if (tags === "Personal") {
+    imageSrc = religionImage;
+  } else if (tags === "Work") {
+    imageSrc = hinduismImage;
+  } else {
+    imageSrc = businessImage;
+  }
 
-    return (
-        <>
-
-            <div className='flex flex-col w-[17rem] lg:w-[17rem] rounded-md border-purple-500 border-2 shadow-sm shadow-purple-900 smd:w-[15.5rem] md:w-[13.8rem] sm:w-[12rem] ssm:w-[11rem] ' key={keys}>
-                <div className="image">
-                    <img src={imageSrc} alt={tags} className='w-full rounded-t-sm' />
-                </div>
-                <div className="content flex flex-col space-y-2 md:p-4 sm:p-2 ssm:p-2 bg-white rounded-b-md sssm:p-2 sssm:gap-y-4">
-                    <div className="flex flex-row md:gap-x-4 sm:gap-x-3 justify-between">
-                        <h2 className="font-sans text-purple-800 smd:text-xl sm:text-[17px] ssm:text-[15px] font-bold sm:w-[8rem] truncate hover:text-clip" >
-                            {titles}
-                        </h2>
-                        <div className="flex flex-row gap-x-4 smd:mt-[0.3rem] sm:mt-[0.2rem]" >
-                            <FontAwesomeIcon icon={faTrash} className='text-purple-600 ' onClick={() => { delete_Note(keys) }} />
-                            <FontAwesomeIcon icon={faPenToSquare} className='text-purple-600' onClick={() => { update_Note({ keys, titles, Description, tags }) }} />
-                        </div>
-                    </div>
-
-                    <p className="font-sans text-purple-800 smd:h-[10rem] overflow-hidden sm:h-[7rem] ssm:h-[5rem] smd:text-lg sm:text-[14px] ssm:text-[11px]">
-                        {Description}
-                    </p>
-                    <h3 className="font-sans text-purple-800 smd:text-md ssm:text-sm" >
-                        Tag: {tags}
-                    </h3>
-                </div>
-
-            </div>
-        </>
-    );
+  return (
+    <div>
+      <div className="relative flex flex-row w-full p-3 text-gray-700 bg-white border-2 border-purple-600 shadow-md shadow-lg bg-clip-border rounded-xl shadow-black">
+        <div className="relative w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-r-none bg-clip-border rounded-xl shrink-0">
+          <img
+            src={imageSrc}
+            alt={tags}
+            className="object-cover w-full h-full"
+          />
+        </div>
+        <div className="p-6 rounded-md bg-slate-300">
+          <h6 className="block mb-4 font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-gray-700 uppercase">
+            Tag: {tags}
+          </h6>
+          <h4 className="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+            {titles}
+          </h4>
+          <p className="block mb-8 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
+            {Description}
+          </p>
+          <div className="flex flex-row gap-x-4 smd:mt-[0.3rem] sm:mt-[0.2rem]">
+            <FontAwesomeIcon
+              icon={faTrash}
+              className="text-purple-600 cursor-pointer "
+              onClick={() => {
+                dispatch(delete_Note(keys));
+              }}
+            />
+            <FontAwesomeIcon
+              icon={faPenToSquare}
+              className="text-purple-600 cursor-pointer "
+              onClick={() => {
+                update_Note(keys, titles, Description, tags);
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Noteitem;
-

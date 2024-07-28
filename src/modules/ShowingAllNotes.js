@@ -1,41 +1,48 @@
-import React, { useEffect, useState } from 'react'
-import { useContext } from 'react'
-import NoteContext from '../context/notes/NoteContext'
-import Noteitem from './NoteitemDesign';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import Noteitem from "./NoteitemDesign";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { get_Note } from "../state/actions/NotesManage";
 const AllNotes = (props) => {
+  const data = useSelector((state) => state.NotesReducer.todo);
 
-  const notes = useContext(NoteContext);
   const navigate = useNavigate();
-  let { note, get_Notes } = notes;
-  let { update_Note } = props
-
+  let { update_Note } = props;
+  let dispatch = useDispatch();
   useEffect(() => {
-    if (localStorage.getItem('token'))
-      get_Notes();
+    if (localStorage.getItem("token")) dispatch(get_Note());
     else {
-      navigate("/SignIn")
+      navigate("/SignIn");
     }
-  }, [])
-
+  }, []);
 
   return (
-    <div className="flex flex-col gap-y-14 mt-10 items-center justify-center">
+    <div className="flex flex-col items-center justify-center mt-10 gap-y-14">
+      <h1 className="items-center w-full p-4 font-sans text-3xl text-center text-white bg-purple-600 rounded-md ">
+        YOUR NOTES
+      </h1>
 
-      <h1 className=' text-purple-600 text-3xl font-sans text-center items-center p-4 bg-purple-100 rounded-md w-full '>YOUR NOTES</h1>
+      <div className="flex flex-wrap items-center sm:justify-start smd:ml-8 xl:gap-x-[1.7rem] gap-y-8 lg:gap-x-[4.2rem] smd:gap-x-[2.6rem] ssm:gap-x-[1rem] md:ml-8 sm:ml-2 ssm:justify-center sssm:justify-center sssm:items-center  ">
+        {data.length === 0 && (
+          <h1 className="items-center font-sans text-2xl text-center text-purple-600 p-4w-full">
+            No notes to display... Please Add some notes from above
+          </h1>
+        )}
 
-      <div className='flex flex-wrap items-center sm:justify-start smd:ml-8 xl:gap-x-[1.7rem] gap-y-8 lg:gap-x-[4.2rem] smd:gap-x-[2.6rem] ssm:gap-x-[1rem] md:ml-8 sm:ml-2 ssm:justify-center sssm:justify-center sssm:items-center  '>
-        {note.length === 0 && <h1 className=' text-purple-600 text-2xl font-sans text-center items-center p-4w-full '>No notes to display... Please Add some notes from above</h1>}
-        {note.map((notes) => {
-          return <Noteitem keys={notes._id} titles={notes.title} Description={notes.Description} tags={notes.tags} update_Note={update_Note} />
+        {data.map((notes) => {
+          return (
+            <Noteitem
+              keys={notes._id}
+              titles={notes.title}
+              Description={notes.Description}
+              tags={notes.tags}
+              update_Note={update_Note}
+            />
+          );
         })}
-
-
       </div>
-
     </div>
+  );
+};
 
-  )
-}
-
-export default AllNotes
+export default AllNotes;
