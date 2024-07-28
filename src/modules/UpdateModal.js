@@ -42,9 +42,9 @@ const UpdateModal = (props) => {
       }
 
       if (
-        titless.current.value.length <= 14 &&
-        Descriptions.current.value.length <= 66 &&
-        tagss.current.value.length <= 14
+        titless.current.value.length !== "" &&
+        Descriptions.current.value.length !== "" &&
+        tagss.current.value.length !== ""
       ) {
         e.preventDefault();
 
@@ -106,7 +106,7 @@ const UpdateModal = (props) => {
         }
       }, [shos])}
       <div
-        className="modal flex flex-col justify-center items-center bg-black bg-opacity-75 w-[100%] h-screen z-20 fixed overflow-hidden "
+        className="modal flex flex-col justify-center items-center bg-black bg-opacity-75 w-[100%] h-screen -mt-[9.3rem] z-20 fixed overflow-hidden "
         ref={close}
       >
         <FontAwesomeIcon
