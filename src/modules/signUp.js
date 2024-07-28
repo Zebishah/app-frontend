@@ -130,13 +130,12 @@ const SignUp = () => {
 
   return (
     <div className="flex flex-col overflow-x-hidden gap-y-4">
-      <Navbar />
       <WrongAlert dhos={dhos} />
       <SignUpAlert shos={shos} />
-      <div className="flex flex-col m-auto items-center justify-center md:p-6 ssm:p-2 bg-white shadow-sm shadow-black w-[40%] relative bottom-[18.6rem] md:w-[30rem] sm:w-[60%] ssm:w-[70%] sssm:w-[80%] sssm:-mt-8 sssm:h-[40%]">
+      <div className="flex flex-col m-auto items-center justify-center md:p-6 ssm:p-2 bg-white shadow-sm shadow-black w-[40%] relative bottom-[2rem] md:w-[30rem] sm:w-[60%] ssm:w-[70%] sssm:w-[80%] sssm:-mt-8 sssm:h-[40%]">
         <div className="container flex flex-col gap-y-4 h-full items-center justify-center bg-white p-10 sssm:w-[100%] sssm:p-3">
           <div className="flex flex-row items-center">
-            <h1 className="items-center p-2 font-sans text-purple-600 bg-purple-100 rounded-md md:text-2xl ssm:text-lg">
+            <h1 className="items-center p-2 font-sans text-blue-600 bg-blue-100 rounded-md md:text-2xl ssm:text-lg">
               Sign-Up
             </h1>
           </div>
@@ -144,7 +143,7 @@ const SignUp = () => {
             <div className="flex flex-col w-full gap-y-2">
               <label
                 htmlFor="UserName"
-                className="items-start text-purple-600 md:text-sm ssm:text-sm"
+                className="items-start text-blue-600 md:text-sm ssm:text-sm"
               >
                 UserName
               </label>
@@ -164,7 +163,7 @@ const SignUp = () => {
             <div className="flex flex-col w-full gap-y-2">
               <label
                 htmlFor="E-mail"
-                className="text-purple-600 md:text-sm ssm:text-sm"
+                className="text-blue-600 md:text-sm ssm:text-sm"
               >
                 E-mail
               </label>
@@ -184,7 +183,7 @@ const SignUp = () => {
             <div className="flex flex-col w-full gap-y-2">
               <label
                 htmlFor="Password"
-                className="text-purple-600 md:text-sm ssm:text-sm"
+                className="text-blue-600 md:text-sm ssm:text-sm"
               >
                 Password
               </label>
@@ -203,14 +202,14 @@ const SignUp = () => {
             </div>
             <div className="flex w-full mt-2 gap-x-1">
               <input type="checkbox" className="md:p-1" />
-              <p className="md:text-sm text-purple-500 ssm:text-[10px] sssm:text-[9px]">
+              <p className="md:text-sm text-blue-500 ssm:text-[10px] sssm:text-[9px]">
                 Agree to the license terms and agreements
               </p>
             </div>
             <input
               type="button"
               value="Register"
-              className="p-2 mt-[5px] cursor-pointer rounded-md shadow-sm shadow-black bg-purple-600 text-white w-[10rem]"
+              className="p-2 mt-[5px] cursor-pointer rounded-md shadow-sm shadow-black bg-blue-600 hover:bg-blue-400 transition-all ease-in-out duration-300 text-white w-[10rem]"
               onClick={handleSignUp}
             />
           </form>

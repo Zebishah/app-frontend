@@ -11,14 +11,22 @@ import Contacts from "./modules/Contacts";
 import AllNotes from "./modules/ShowingAllNotes";
 import Help from "./modules/Help";
 import Links from "./modules/Links";
+import LandingPage from "./modules/LandingPage";
+import Footer from "./modules/Footer";
 function App() {
   return (
     <div className="w-full h-auto">
       <LogState>
         <NoteState>
           <Router>
+            <Navbar />
             <Routes>
-              <Route exact path="/" element={<Home key="Home" />} />
+              <Route exact path="/home" element={<Home key="Home" />} />
+              <Route
+                exact
+                path="/"
+                element={<LandingPage key="landingPage" />}
+              />
               <Route exact path="/about" element={<About key=" About" />} />
               <Route exact path="/SignIn" element={<SignIn key="signIn" />} />
               <Route exact path="/SignUp" element={<SignUp key=" signUp" />} />
@@ -35,6 +43,7 @@ function App() {
               <Route exact path="/help" element={<Help key="help" />} />
               <Route exact path="/links" element={<Links key="links" />} />
             </Routes>
+            <Footer />
           </Router>
         </NoteState>
       </LogState>

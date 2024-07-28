@@ -159,7 +159,7 @@ const AddNote = () => {
         }
       }, [shos])}
 
-      <div className="container flex flex-col smd:gap-y-7 items-center -mt-[18rem] ssm:gap-y-5 sssm:gap-y-5">
+      <div className="container flex flex-col items-center smd:gap-y-7 ssm:gap-y-5 sssm:gap-y-5">
         <h1 className="items-center p-4 font-sans text-purple-600 bg-purple-100 rounded-md smd:text-3xl">
           ADD YOUR NOTES
         </h1>
